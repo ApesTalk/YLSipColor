@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6DF003322009E7050094AD59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003312009E7050094AD59 /* AppDelegate.m */; };
+		6DF0033A2009E7050094AD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DF003392009E7050094AD59 /* Assets.xcassets */; };
+		6DF003402009E7060094AD59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0033F2009E7060094AD59 /* main.m */; };
+		6DF0034A2009E7060094AD59 /* YLSipColorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003492009E7060094AD59 /* YLSipColorTests.m */; };
+		6DF003552009E7060094AD59 /* YLSipColorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003542009E7060094AD59 /* YLSipColorUITests.m */; };
+		6DF003762009E75B0094AD59 /* YLCaptureColorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003652009E75B0094AD59 /* YLCaptureColorController.m */; };
+		6DF003772009E75B0094AD59 /* YLPaletteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003672009E75B0094AD59 /* YLPaletteDetailController.m */; };
+		6DF003782009E75B0094AD59 /* YLPaletteListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003692009E75B0094AD59 /* YLPaletteListController.m */; };
+		6DF003792009E75B0094AD59 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0036C2009E75B0094AD59 /* UIImage+Color.m */; };
+		6DF0037A2009E75B0094AD59 /* UIView+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0036E2009E75B0094AD59 /* UIView+Color.m */; };
+		6DF0037B2009E75B0094AD59 /* YLPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003702009E75B0094AD59 /* YLPalette.m */; };
+		6DF0037C2009E75B0094AD59 /* YLColorDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003732009E75B0094AD59 /* YLColorDotView.m */; };
+		6DF0037D2009E75B0094AD59 /* YLPaletteListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003752009E75B0094AD59 /* YLPaletteListCell.m */; };
+		6DF0037F2009E7D00094AD59 /* pubu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DF0037E2009E7D00094AD59 /* pubu.jpg */; };
+		6DF003822009E88C0094AD59 /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003812009E88C0094AD59 /* UIImage+FixOrientation.m */; };
+		6DF00389200B5B8B0094AD59 /* YLTranslucentToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF00388200B5B8B0094AD59 /* YLTranslucentToolbar.m */; };
+		6DF0038C200B5D720094AD59 /* YLCollectionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0038B200B5D720094AD59 /* YLCollectionContainerView.m */; };
+		6DF0038F200B87F90094AD59 /* YLColorEditActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0038E200B87F90094AD59 /* YLColorEditActionView.m */; };
+		9F531922CEF9F7C2943DD1E0 /* libPods-YLSipColor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C844C1EED17A7251032A15 /* libPods-YLSipColor.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6DF003462009E7060094AD59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DF003252009E7050094AD59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DF0032C2009E7050094AD59;
+			remoteInfo = YLSipColor;
+		};
+		6DF003512009E7060094AD59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DF003252009E7050094AD59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DF0032C2009E7050094AD59;
+			remoteInfo = YLSipColor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40C844C1EED17A7251032A15 /* libPods-YLSipColor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLSipColor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF0032D2009E7050094AD59 /* YLSipColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLSipColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF003302009E7050094AD59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6DF003312009E7050094AD59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6DF003392009E7050094AD59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6DF0033E2009E7060094AD59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DF0033F2009E7060094AD59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6DF003452009E7060094AD59 /* YLSipColorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLSipColorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF003492009E7060094AD59 /* YLSipColorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLSipColorTests.m; sourceTree = "<group>"; };
+		6DF0034B2009E7060094AD59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DF003502009E7060094AD59 /* YLSipColorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLSipColorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF003542009E7060094AD59 /* YLSipColorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLSipColorUITests.m; sourceTree = "<group>"; };
+		6DF003562009E7060094AD59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DF003642009E75B0094AD59 /* YLCaptureColorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCaptureColorController.h; sourceTree = "<group>"; };
+		6DF003652009E75B0094AD59 /* YLCaptureColorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLCaptureColorController.m; sourceTree = "<group>"; };
+		6DF003662009E75B0094AD59 /* YLPaletteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPaletteDetailController.h; sourceTree = "<group>"; };
+		6DF003672009E75B0094AD59 /* YLPaletteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPaletteDetailController.m; sourceTree = "<group>"; };
+		6DF003682009E75B0094AD59 /* YLPaletteListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPaletteListController.h; sourceTree = "<group>"; };
+		6DF003692009E75B0094AD59 /* YLPaletteListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPaletteListController.m; sourceTree = "<group>"; };
+		6DF0036B2009E75B0094AD59 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		6DF0036C2009E75B0094AD59 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		6DF0036D2009E75B0094AD59 /* UIView+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Color.h"; sourceTree = "<group>"; };
+		6DF0036E2009E75B0094AD59 /* UIView+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Color.m"; sourceTree = "<group>"; };
+		6DF0036F2009E75B0094AD59 /* YLPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPalette.h; sourceTree = "<group>"; };
+		6DF003702009E75B0094AD59 /* YLPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPalette.m; sourceTree = "<group>"; };
+		6DF003722009E75B0094AD59 /* YLColorDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLColorDotView.h; sourceTree = "<group>"; };
+		6DF003732009E75B0094AD59 /* YLColorDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLColorDotView.m; sourceTree = "<group>"; };
+		6DF003742009E75B0094AD59 /* YLPaletteListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPaletteListCell.h; sourceTree = "<group>"; };
+		6DF003752009E75B0094AD59 /* YLPaletteListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPaletteListCell.m; sourceTree = "<group>"; };
+		6DF0037E2009E7D00094AD59 /* pubu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pubu.jpg; sourceTree = "<group>"; };
+		6DF003802009E88C0094AD59 /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixOrientation.h"; sourceTree = "<group>"; };
+		6DF003812009E88C0094AD59 /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
+		6DF00386200B57660094AD59 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		6DF00387200B5B8B0094AD59 /* YLTranslucentToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLTranslucentToolbar.h; sourceTree = "<group>"; };
+		6DF00388200B5B8B0094AD59 /* YLTranslucentToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLTranslucentToolbar.m; sourceTree = "<group>"; };
+		6DF0038A200B5D720094AD59 /* YLCollectionContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCollectionContainerView.h; sourceTree = "<group>"; };
+		6DF0038B200B5D720094AD59 /* YLCollectionContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCollectionContainerView.m; sourceTree = "<group>"; };
+		6DF0038D200B87F90094AD59 /* YLColorEditActionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLColorEditActionView.h; sourceTree = "<group>"; };
+		6DF0038E200B87F90094AD59 /* YLColorEditActionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLColorEditActionView.m; sourceTree = "<group>"; };
+		A464DCF2D0B336889F7697D8 /* Pods-YLSipColor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLSipColor.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLSipColor/Pods-YLSipColor.release.xcconfig"; sourceTree = "<group>"; };
+		CD27CB63D5724344DB2E197A /* Pods-YLSipColor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLSipColor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLSipColor/Pods-YLSipColor.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6DF0032A2009E7050094AD59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F531922CEF9F7C2943DD1E0 /* libPods-YLSipColor.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DF003422009E7060094AD59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DF0034D2009E7060094AD59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63CC802C584B9300A3476A8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40C844C1EED17A7251032A15 /* libPods-YLSipColor.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DF003242009E7050094AD59 = {
+			isa = PBXGroup;
+			children = (
+				6DF0037E2009E7D00094AD59 /* pubu.jpg */,
+				6DF0032F2009E7050094AD59 /* YLSipColor */,
+				6DF003482009E7060094AD59 /* YLSipColorTests */,
+				6DF003532009E7060094AD59 /* YLSipColorUITests */,
+				6DF0032E2009E7050094AD59 /* Products */,
+				B3D7303D38FA129DB71C1B8B /* Pods */,
+				63CC802C584B9300A3476A8E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6DF0032E2009E7050094AD59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DF0032D2009E7050094AD59 /* YLSipColor.app */,
+				6DF003452009E7060094AD59 /* YLSipColorTests.xctest */,
+				6DF003502009E7060094AD59 /* YLSipColorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DF0032F2009E7050094AD59 /* YLSipColor */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003622009E75B0094AD59 /* PickColor */,
+				6DF003302009E7050094AD59 /* AppDelegate.h */,
+				6DF003312009E7050094AD59 /* AppDelegate.m */,
+				6DF003392009E7050094AD59 /* Assets.xcassets */,
+				6DF0033E2009E7060094AD59 /* Info.plist */,
+				6DF0033F2009E7060094AD59 /* main.m */,
+				6DF00386200B57660094AD59 /* Constant.h */,
+			);
+			path = YLSipColor;
+			sourceTree = "<group>";
+		};
+		6DF003482009E7060094AD59 /* YLSipColorTests */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003492009E7060094AD59 /* YLSipColorTests.m */,
+				6DF0034B2009E7060094AD59 /* Info.plist */,
+			);
+			path = YLSipColorTests;
+			sourceTree = "<group>";
+		};
+		6DF003532009E7060094AD59 /* YLSipColorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003542009E7060094AD59 /* YLSipColorUITests.m */,
+				6DF003562009E7060094AD59 /* Info.plist */,
+			);
+			path = YLSipColorUITests;
+			sourceTree = "<group>";
+		};
+		6DF003622009E75B0094AD59 /* PickColor */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003632009E75B0094AD59 /* Controller */,
+				6DF0036A2009E75B0094AD59 /* Model */,
+				6DF003712009E75B0094AD59 /* View */,
+			);
+			path = PickColor;
+			sourceTree = "<group>";
+		};
+		6DF003632009E75B0094AD59 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003682009E75B0094AD59 /* YLPaletteListController.h */,
+				6DF003692009E75B0094AD59 /* YLPaletteListController.m */,
+				6DF003642009E75B0094AD59 /* YLCaptureColorController.h */,
+				6DF003652009E75B0094AD59 /* YLCaptureColorController.m */,
+				6DF003662009E75B0094AD59 /* YLPaletteDetailController.h */,
+				6DF003672009E75B0094AD59 /* YLPaletteDetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6DF0036A2009E75B0094AD59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003802009E88C0094AD59 /* UIImage+FixOrientation.h */,
+				6DF003812009E88C0094AD59 /* UIImage+FixOrientation.m */,
+				6DF0036B2009E75B0094AD59 /* UIImage+Color.h */,
+				6DF0036C2009E75B0094AD59 /* UIImage+Color.m */,
+				6DF0036D2009E75B0094AD59 /* UIView+Color.h */,
+				6DF0036E2009E75B0094AD59 /* UIView+Color.m */,
+				6DF0036F2009E75B0094AD59 /* YLPalette.h */,
+				6DF003702009E75B0094AD59 /* YLPalette.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6DF003712009E75B0094AD59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DF003722009E75B0094AD59 /* YLColorDotView.h */,
+				6DF003732009E75B0094AD59 /* YLColorDotView.m */,
+				6DF003742009E75B0094AD59 /* YLPaletteListCell.h */,
+				6DF003752009E75B0094AD59 /* YLPaletteListCell.m */,
+				6DF00387200B5B8B0094AD59 /* YLTranslucentToolbar.h */,
+				6DF00388200B5B8B0094AD59 /* YLTranslucentToolbar.m */,
+				6DF0038A200B5D720094AD59 /* YLCollectionContainerView.h */,
+				6DF0038B200B5D720094AD59 /* YLCollectionContainerView.m */,
+				6DF0038D200B87F90094AD59 /* YLColorEditActionView.h */,
+				6DF0038E200B87F90094AD59 /* YLColorEditActionView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3D7303D38FA129DB71C1B8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD27CB63D5724344DB2E197A /* Pods-YLSipColor.debug.xcconfig */,
+				A464DCF2D0B336889F7697D8 /* Pods-YLSipColor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DF0032C2009E7050094AD59 /* YLSipColor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DF003592009E7060094AD59 /* Build configuration list for PBXNativeTarget "YLSipColor" */;
+			buildPhases = (
+				EBA5093DF7BD4A9663E6E575 /* [CP] Check Pods Manifest.lock */,
+				6DF003292009E7050094AD59 /* Sources */,
+				6DF0032A2009E7050094AD59 /* Frameworks */,
+				6DF0032B2009E7050094AD59 /* Resources */,
+				14DAD3AACEE922B5239E1535 /* [CP] Embed Pods Frameworks */,
+				FE2D0ACB239154305215D690 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YLSipColor;
+			productName = YLSipColor;
+			productReference = 6DF0032D2009E7050094AD59 /* YLSipColor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6DF003442009E7060094AD59 /* YLSipColorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DF0035C2009E7060094AD59 /* Build configuration list for PBXNativeTarget "YLSipColorTests" */;
+			buildPhases = (
+				6DF003412009E7060094AD59 /* Sources */,
+				6DF003422009E7060094AD59 /* Frameworks */,
+				6DF003432009E7060094AD59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DF003472009E7060094AD59 /* PBXTargetDependency */,
+			);
+			name = YLSipColorTests;
+			productName = YLSipColorTests;
+			productReference = 6DF003452009E7060094AD59 /* YLSipColorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6DF0034F2009E7060094AD59 /* YLSipColorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DF0035F2009E7060094AD59 /* Build configuration list for PBXNativeTarget "YLSipColorUITests" */;
+			buildPhases = (
+				6DF0034C2009E7060094AD59 /* Sources */,
+				6DF0034D2009E7060094AD59 /* Frameworks */,
+				6DF0034E2009E7060094AD59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DF003522009E7060094AD59 /* PBXTargetDependency */,
+			);
+			name = YLSipColorUITests;
+			productName = YLSipColorUITests;
+			productReference = 6DF003502009E7060094AD59 /* YLSipColorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DF003252009E7050094AD59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "https://github.com/lqcjdx";
+				TargetAttributes = {
+					6DF0032C2009E7050094AD59 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					6DF003442009E7060094AD59 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6DF0032C2009E7050094AD59;
+					};
+					6DF0034F2009E7060094AD59 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6DF0032C2009E7050094AD59;
+					};
+				};
+			};
+			buildConfigurationList = 6DF003282009E7050094AD59 /* Build configuration list for PBXProject "YLSipColor" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6DF003242009E7050094AD59;
+			productRefGroup = 6DF0032E2009E7050094AD59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6DF0032C2009E7050094AD59 /* YLSipColor */,
+				6DF003442009E7060094AD59 /* YLSipColorTests */,
+				6DF0034F2009E7060094AD59 /* YLSipColorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6DF0032B2009E7050094AD59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DF0033A2009E7050094AD59 /* Assets.xcassets in Resources */,
+				6DF0037F2009E7D00094AD59 /* pubu.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DF003432009E7060094AD59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DF0034E2009E7060094AD59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14DAD3AACEE922B5239E1535 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLSipColor/Pods-YLSipColor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBA5093DF7BD4A9663E6E575 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE2D0ACB239154305215D690 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLSipColor/Pods-YLSipColor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DF003292009E7050094AD59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DF0038F200B87F90094AD59 /* YLColorEditActionView.m in Sources */,
+				6DF003772009E75B0094AD59 /* YLPaletteDetailController.m in Sources */,
+				6DF003792009E75B0094AD59 /* UIImage+Color.m in Sources */,
+				6DF003782009E75B0094AD59 /* YLPaletteListController.m in Sources */,
+				6DF0038C200B5D720094AD59 /* YLCollectionContainerView.m in Sources */,
+				6DF0037A2009E75B0094AD59 /* UIView+Color.m in Sources */,
+				6DF003762009E75B0094AD59 /* YLCaptureColorController.m in Sources */,
+				6DF003402009E7060094AD59 /* main.m in Sources */,
+				6DF0037C2009E75B0094AD59 /* YLColorDotView.m in Sources */,
+				6DF0037B2009E75B0094AD59 /* YLPalette.m in Sources */,
+				6DF0037D2009E75B0094AD59 /* YLPaletteListCell.m in Sources */,
+				6DF00389200B5B8B0094AD59 /* YLTranslucentToolbar.m in Sources */,
+				6DF003822009E88C0094AD59 /* UIImage+FixOrientation.m in Sources */,
+				6DF003322009E7050094AD59 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DF003412009E7060094AD59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DF0034A2009E7060094AD59 /* YLSipColorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DF0034C2009E7060094AD59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DF003552009E7060094AD59 /* YLSipColorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6DF003472009E7060094AD59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DF0032C2009E7050094AD59 /* YLSipColor */;
+			targetProxy = 6DF003462009E7060094AD59 /* PBXContainerItemProxy */;
+		};
+		6DF003522009E7060094AD59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DF0032C2009E7050094AD59 /* YLSipColor */;
+			targetProxy = 6DF003512009E7060094AD59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6DF003572009E7060094AD59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6DF003582009E7060094AD59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6DF0035A2009E7060094AD59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD27CB63D5724344DB2E197A /* Pods-YLSipColor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YLSipColor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6DF0035B2009E7060094AD59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A464DCF2D0B336889F7697D8 /* Pods-YLSipColor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YLSipColor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6DF0035D2009E7060094AD59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YLSipColorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YLSipColor.app/YLSipColor";
+			};
+			name = Debug;
+		};
+		6DF0035E2009E7060094AD59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YLSipColorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YLSipColor.app/YLSipColor";
+			};
+			name = Release;
+		};
+		6DF003602009E7060094AD59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YLSipColorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YLSipColor;
+			};
+			name = Debug;
+		};
+		6DF003612009E7060094AD59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YLSipColorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YLSipColor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6DF003282009E7050094AD59 /* Build configuration list for PBXProject "YLSipColor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DF003572009E7060094AD59 /* Debug */,
+				6DF003582009E7060094AD59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DF003592009E7060094AD59 /* Build configuration list for PBXNativeTarget "YLSipColor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DF0035A2009E7060094AD59 /* Debug */,
+				6DF0035B2009E7060094AD59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DF0035C2009E7060094AD59 /* Build configuration list for PBXNativeTarget "YLSipColorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DF0035D2009E7060094AD59 /* Debug */,
+				6DF0035E2009E7060094AD59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DF0035F2009E7060094AD59 /* Build configuration list for PBXNativeTarget "YLSipColorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DF003602009E7060094AD59 /* Debug */,
+				6DF003612009E7060094AD59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DF003252009E7050094AD59 /* Project object */;
+}
