@@ -11,9 +11,10 @@
 @class YLColorEditActionView;
 
 static CGFloat const kActionSmallHeight = 60.f;
-static CGFloat const kActionBigHeight = 374.f;
+static CGFloat const kActionBigHeight = 410.f;
 
 typedef NS_ENUM(NSInteger, YLActionType) {
+    YLActionTypeBeginEdit,
     YLActionTypeEndEdit,
     YLActionTypeClose,
     YLActionTypeRedo,

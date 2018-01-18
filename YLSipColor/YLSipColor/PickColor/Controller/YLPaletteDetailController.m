@@ -86,7 +86,18 @@ static NSString *cellIdentifier = @"cell";
 - (void)actionView:(YLColorEditActionView *)actionView actionType:(YLActionType)type oldColor:(UIColor *)oldColor newColor:(UIColor *)newColor
 {
     switch (type) {
+        case YLActionTypeBeginEdit:{
+            _containerView.collectionView.scrollEnabled = NO;
+            [UIView animateWithDuration:0.25 animations:^{
+                _topBar.frame = CGRectMake(0, -(kStatusBarHeight + kNavigatonBarHeight), kScreenWidth, kNavigatonBarHeight);
+            } completion:nil];
+            break;
+        }
         case YLActionTypeEndEdit:{
+            [UIView animateWithDuration:0.25 animations:^{
+                _topBar.frame = CGRectMake(0, kStatusBarHeight, kScreenWidth, kNavigatonBarHeight);
+            } completion:nil];
+            _containerView.collectionView.scrollEnabled = YES;
             _rightColorView.backgroundColor = [UIColor clearColor];
             [self.view sendSubviewToBack:_rightBgView];
             break;

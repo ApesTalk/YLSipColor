@@ -105,91 +105,63 @@ static NSString *cellIdentifier = @"cell";
         topLine.backgroundColor = [UIColor lightGrayColor];
         [_bottomView addSubview:topLine];
         y += 0.5 + 15;
-        _hueLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 21)];
-        _hueLabel.backgroundColor = [UIColor whiteColor];
-        _hueLabel.font = [UIFont systemFontOfSize:14];
-        _hueLabel.textColor = [UIColor lightGrayColor];
-        _hueLabel.text = @"Hue";
-        [_bottomView addSubview:_hueLabel];
-        y += 25;
-        _hueSlider = [[UISlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 25)];
-        _hueSlider.minimumTrackTintColor = [UIColor yellowColor];
-        _hueSlider.maximumTrackTintColor = [UIColor greenColor];
-        [_hueSlider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
-        [_bottomView addSubview:_hueSlider];
-        _hueValueLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y, 40, 21)];
-        _hueValueLabel.backgroundColor = [UIColor whiteColor];
-        _hueValueLabel.font = [UIFont systemFontOfSize:14];
-        _hueValueLabel.textColor = [UIColor lightGrayColor];
-        [_bottomView addSubview:_hueValueLabel];
+        NSArray *titles = @[@"Hue", @"Saturation", @"Brightness", @"Alpha"];
+        for(NSInteger i = 0; i < 4; i++){
+            UILabel *tLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 16)];
+            tLabel.font = [UIFont systemFontOfSize:14];
+            tLabel.textColor = [UIColor lightGrayColor];
+            tLabel.text = titles[i];
+            [_bottomView addSubview:tLabel];
+            y += 25;
+            UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 35)];
+            slider.layer.cornerRadius = 17.5;
+            slider.layer.masksToBounds = YES;
+            [slider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
+            [_bottomView addSubview:slider];
+            UILabel *vLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y + (35 - 16) * 0.5, 40, 16)];
+            vLabel.font = [UIFont systemFontOfSize:14];
+            vLabel.textColor = [UIColor lightGrayColor];
+            [_bottomView addSubview:vLabel];
+            y += 35 + 10;
+            
+            if(i == 0){
+                _hueLabel = tLabel;
+                _hueSlider = slider;
+                _hueValueLabel = vLabel;
+            }else if (i == 1){
+                _saturationLabel = tLabel;
+                _saturationSlider = slider;
+                _saturationValueLabel = vLabel;
+            }else if (i == 2){
+                _brightLabel = tLabel;
+                _brightSlider = slider;
+                _brightValueLabel = vLabel;
+            }else{
+                _alphaLabel = tLabel;
+                _alphaSlider = slider;
+                _alphaValueLabel = vLabel;
+            }
+        }
         
-        y += 21 + 15;
-        _saturationLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 21)];
-        _saturationLabel.backgroundColor = [UIColor whiteColor];
-        _saturationLabel.font = [UIFont systemFontOfSize:14];
-        _saturationLabel.textColor = [UIColor lightGrayColor];
-        _saturationLabel.text = @"Saturation";
-        [_bottomView addSubview:_saturationLabel];
-        y += 25;
-        _saturationSlider = [[UISlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 25)];
-        _saturationSlider.minimumTrackTintColor = [UIColor yellowColor];
-        _saturationSlider.maximumTrackTintColor = [UIColor greenColor];
-        [_saturationSlider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
-        [_bottomView addSubview:_saturationSlider];
-        _saturationValueLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y, 40, 21)];
-        _saturationValueLabel.backgroundColor = [UIColor whiteColor];
-        _saturationValueLabel.font = [UIFont systemFontOfSize:14];
-        _saturationValueLabel.textColor = [UIColor lightGrayColor];
-        [_bottomView addSubview:_saturationValueLabel];
-        
-        y += 21 + 15;
-        _brightLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 21)];
-        _brightLabel.backgroundColor = [UIColor whiteColor];
-        _brightLabel.font = [UIFont systemFontOfSize:14];
-        _brightLabel.textColor = [UIColor lightGrayColor];
-        _brightLabel.text = @"Brightness";
-        [_bottomView addSubview:_brightLabel];
-        y += 25;
-        _brightSlider = [[UISlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 25)];
-        _brightSlider.minimumTrackTintColor = [UIColor yellowColor];
-        _brightSlider.maximumTrackTintColor = [UIColor greenColor];
-        [_brightSlider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
-
-        [_bottomView addSubview:_brightSlider];
-        _brightValueLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y, 40, 21)];
-        _brightValueLabel.backgroundColor = [UIColor whiteColor];
-        _brightValueLabel.font = [UIFont systemFontOfSize:14];
-        _brightValueLabel.textColor = [UIColor lightGrayColor];
-        [_bottomView addSubview:_brightValueLabel];
-        
-        y += 21 + 15;
-        _alphaLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 21)];
-        _alphaLabel.backgroundColor = [UIColor whiteColor];
-        _alphaLabel.font = [UIFont systemFontOfSize:14];
-        _alphaLabel.textColor = [UIColor lightGrayColor];
-        _alphaLabel.text = @"Alpha";
-        [_bottomView addSubview:_alphaLabel];
-        y += 25;
-        _alphaSlider = [[UISlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 25)];
-        _alphaSlider.minimumTrackTintColor = [UIColor yellowColor];
-        _alphaSlider.maximumTrackTintColor = [UIColor greenColor];
-        [_alphaSlider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
-
-        [_bottomView addSubview:_alphaSlider];
-        _alphaValueLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y, 40, 21)];
-        _alphaValueLabel.backgroundColor = [UIColor whiteColor];
-        _alphaValueLabel.font = [UIFont systemFontOfSize:14];
-        _alphaValueLabel.textColor = [UIColor lightGrayColor];
-        [_bottomView addSubview:_alphaValueLabel];
-        
-        y += 21 + 25;
-        _toolBar = [[YLTranslucentToolbar alloc]initWithFrame:CGRectMake(0, y, frame.size.width, 44)];
-        _toolBar.tintColor = [UIColor blackColor];
-        [_bottomView addSubview:_toolBar];
+        y += 10;
+        self.toolBar.frame = CGRectMake(0, y, frame.size.width, 44);
+        [_bottomView addSubview:self.toolBar];
         
         UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 0.5)];
         line.backgroundColor = [UIColor lightGrayColor];
         [_toolBar addSubview:line];
+        
+        [self setEditItemsEnable:NO];
+    }
+    return self;
+}
+
+- (YLTranslucentToolbar *)toolBar
+{
+    if(!_toolBar){
+        _toolBar = [[YLTranslucentToolbar alloc]init];
+        _toolBar.tintColor = [UIColor blackColor];
+        [_bottomView addSubview:_toolBar];
         
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(selectItem:)];
         closeItem.tag = YLActionTypeClose;
@@ -203,9 +175,8 @@ static NSString *cellIdentifier = @"cell";
         UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"save"] style:UIBarButtonItemStylePlain target:self action:@selector(selectItem:)];
         doneItem.tag = YLActionTypeDone;
         _toolBar.items = @[closeItem, spaceItem0, redoItem, spaceItem1, addItem, spaceItem2, doneItem];
-        [self setEditItemsEnable:NO];
     }
-    return self;
+    return _toolBar;
 }
 
 - (BOOL)isBig
@@ -292,47 +263,54 @@ static NSString *cellIdentifier = @"cell";
     CGContextRestoreGState(context);
     CGColorSpaceRelease(colorSpace);
     UIGraphicsEndImageContext();
-    return image;
+    return [image resizableImageWithCapInsets:UIEdgeInsetsZero];
 }
 
 #pragma mark---other methods
 - (void)refreshSliderGradientImage
 {
-    UIColor *nowColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:_brightSlider.value alpha:_alphaSlider.value];
+    UIImage *img = [[UIImage imageNamed:@"sliderBg"]resizableImageWithCapInsets:UIEdgeInsetsZero];
+    [_hueSlider setMinimumTrackImage:img forState:UIControlStateNormal];
+    [_hueSlider setMaximumTrackImage:img forState:UIControlStateNormal];
+    CGFloat hue = _hueSlider.value;
+    CGFloat saturation = _saturationSlider.value;
+    CGFloat brightness = _brightSlider.value;
+    CGFloat alpha = _alphaSlider.value;
+    UIColor *nowColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
+
+    UIColor *hStartColor = [UIColor colorWithHue:0 saturation:saturation brightness:brightness alpha:alpha];
+    UIColor *hEndColor = [UIColor colorWithHue:1.0 saturation:saturation brightness:brightness alpha:alpha];
+    UIImage *hMinImg = [self getGradientImageWithColors:@[hStartColor, nowColor] imgSize:CGSizeMake(_hueSlider.bounds.size.width * hue, 2)];
+//    [_hueSlider setMinimumTrackImage:hMinImg forState:UIControlStateNormal];
+//    UIImage *hMaxImg = [self getGradientImageWithColors:@[nowColor, hEndColor] imgSize:CGSizeMake(_hueSlider.bounds.size.width * (1 - hue), 2)];
+//    [_hueSlider setMaximumTrackImage:hMaxImg forState:UIControlStateNormal];
     
-    UIColor *hStartColor = [UIColor colorWithHue:0 saturation:_saturationSlider.value brightness:_brightSlider.value alpha:_alphaSlider.value];
-    UIColor *hEndColor = [UIColor colorWithHue:1.0 saturation:_saturationSlider.value brightness:_brightSlider.value alpha:_alphaSlider.value];
-    UIImage *hMinImg = [self getGradientImageWithColors:@[hStartColor, nowColor] imgSize:CGSizeMake(_hueSlider.bounds.size.width * _hueSlider.value, 4)];
-    [_hueSlider setMinimumTrackImage:hMinImg forState:UIControlStateNormal];
-    UIImage *hMaxImg = [self getGradientImageWithColors:@[nowColor, hEndColor] imgSize:CGSizeMake(_hueSlider.bounds.size.width - _hueSlider.bounds.size.width * _hueSlider.value, 4)];
-    [_hueSlider setMaximumTrackImage:hMaxImg forState:UIControlStateNormal];
-    
-    UIColor *sStartColor = [UIColor colorWithHue:_hueSlider.value saturation:0 brightness:_brightSlider.value alpha:_alphaSlider.value];
-    UIColor *sEndColor = [UIColor colorWithHue:_hueSlider.value saturation:1.0 brightness:_brightSlider.value alpha:_alphaSlider.value];
-    UIImage *sMinImg = [self getGradientImageWithColors:@[sStartColor, nowColor] imgSize:CGSizeMake(_saturationSlider.bounds.size.width * _saturationSlider.value, 4)];
+    UIColor *sStartColor = [UIColor colorWithHue:hue saturation:0 brightness:brightness alpha:alpha];
+    UIColor *sEndColor = [UIColor colorWithHue:hue saturation:1.0 brightness:brightness alpha:alpha];
+    UIImage *sMinImg = [self getGradientImageWithColors:@[sStartColor, nowColor] imgSize:CGSizeMake(_saturationSlider.bounds.size.width * saturation, 2)];
     [_saturationSlider setMinimumTrackImage:sMinImg forState:UIControlStateNormal];
-    UIImage *sMaxImg = [self getGradientImageWithColors:@[nowColor, sEndColor] imgSize:CGSizeMake(_saturationSlider.bounds.size.width - _saturationSlider.bounds.size.width * _saturationSlider.value, 4)];
+    UIImage *sMaxImg = [self getGradientImageWithColors:@[nowColor, sEndColor] imgSize:CGSizeMake(_saturationSlider.bounds.size.width * (1 - saturation), 2)];
     [_saturationSlider setMaximumTrackImage:sMaxImg forState:UIControlStateNormal];
     
-    UIColor *bStartColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:0 alpha:_alphaSlider.value];
-    UIColor *bEndColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:1.0 alpha:_alphaSlider.value];
-    UIImage *bMinImg = [self getGradientImageWithColors:@[bStartColor, nowColor] imgSize:CGSizeMake(_brightSlider.bounds.size.width * _brightSlider.value, 4)];
+    UIColor *bStartColor = [UIColor colorWithHue:hue saturation:saturation brightness:0 alpha:alpha];
+    UIColor *bEndColor = [UIColor colorWithHue:hue saturation:saturation brightness:1.0 alpha:alpha];
+    UIImage *bMinImg = [self getGradientImageWithColors:@[bStartColor, nowColor] imgSize:CGSizeMake(_brightSlider.bounds.size.width * brightness, 2)];
     [_brightSlider setMinimumTrackImage:bMinImg forState:UIControlStateNormal];
-    UIImage *bMaxImg = [self getGradientImageWithColors:@[nowColor, bEndColor] imgSize:CGSizeMake(_brightSlider.bounds.size.width - _brightSlider.bounds.size.width * _brightSlider.value, 4)];
+    UIImage *bMaxImg = [self getGradientImageWithColors:@[nowColor, bEndColor] imgSize:CGSizeMake(_brightSlider.bounds.size.width * (1 - brightness), 2)];
     [_brightSlider setMaximumTrackImage:bMaxImg forState:UIControlStateNormal];
     
-    UIColor *aStartColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:_brightSlider.value alpha:0];
-    UIColor *aEndColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:_brightSlider.value alpha:1.0];
-    UIImage *aMinImg = [self getGradientImageWithColors:@[aStartColor, nowColor] imgSize:CGSizeMake(_alphaSlider.bounds.size.width * _alphaSlider.value, 4)];
+    UIColor *aStartColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0];
+    UIColor *aEndColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0];
+    UIImage *aMinImg = [self getGradientImageWithColors:@[aStartColor, nowColor] imgSize:CGSizeMake(_alphaSlider.bounds.size.width * alpha, 2)];
     [_alphaSlider setMinimumTrackImage:aMinImg forState:UIControlStateNormal];
-    UIImage *aMaxImg = [self getGradientImageWithColors:@[nowColor, aEndColor] imgSize:CGSizeMake(_alphaSlider.bounds.size.width - _alphaSlider.bounds.size.width * _alphaSlider.value, 4)];
+    UIImage *aMaxImg = [self getGradientImageWithColors:@[nowColor, aEndColor] imgSize:CGSizeMake(_alphaSlider.bounds.size.width * (1 - alpha), 2)];
     [_alphaSlider setMaximumTrackImage:aMaxImg forState:UIControlStateNormal];
 }
 
 - (void)sliderChanged
 {
     [self refreshSliderGradientImage];
-
+    [self setEditItemsEnable:YES];
     if([_delegate respondsToSelector:@selector(actionView:actionType:oldColor:newColor:)]){
         UIColor *newColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:_brightSlider.value alpha:_alphaSlider.value];
         [_delegate actionView:self actionType:YLActionTypeSlider oldColor:_currentColor newColor:newColor];
@@ -346,13 +324,19 @@ static NSString *cellIdentifier = @"cell";
         if(index > 0 && index < _palette.colors.count){
             _currentColor = [_palette.colors objectAtIndex:index];
         }
-        [_delegate actionView:self actionType:YLActionTypeEndEdit oldColor:_currentColor newColor:nil];
+        if(self.isBig){
+            [self setEditItemsEnable:NO];
+            //重置颜色
+            [self getHSBAFromColor:_currentColor];
+            _collectionView.scrollEnabled = YES;
+        }else{
+            _collectionView.scrollEnabled = NO;
+        }
+        [_delegate actionView:self actionType:self.isBig ? YLActionTypeEndEdit : YLActionTypeBeginEdit oldColor:_currentColor newColor:nil];
     }
     
     CGRect newRect;
     if(self.isBig){
-        UIBarButtonItem *redoItem = (UIBarButtonItem *)[_toolBar.items objectAtIndex:1];
-        [self selectItem:redoItem];
         newRect = CGRectMake(0, kScreenHeight - kActionSmallHeight - kHomeIndicatorHeight, kScreenWidth, kActionSmallHeight + kHomeIndicatorHeight);
     }else{
         newRect = CGRectMake(0, kScreenHeight - kActionBigHeight - kHomeIndicatorHeight, kScreenWidth, kActionBigHeight + kHomeIndicatorHeight);
@@ -386,7 +370,7 @@ static NSString *cellIdentifier = @"cell";
 {
     for(NSInteger i = 1; i < 7; i++){
         UIBarButtonItem *item = (UIBarButtonItem *)[_toolBar.items objectAtIndex:i];
-        item.enabled = NO;
+        item.enabled = enable;
     }
 }
 
