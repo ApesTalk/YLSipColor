@@ -7,14 +7,29 @@
 
 ## 已实现的功能
 
-- 拾取图片上当前触摸点的颜色、可以拖动和放大
+- 从相册选择图片、拾取图片上当前触摸点的颜色、可以拖动和放大
+- 陀螺仪和加速计结合使用，不断从摄像头获取图像
 - 从摄像头拾取颜色
-- 颜色列表
-- 颜色编辑与对比效果
+- 打开和关闭闪光灯
+- 切换前后摄像头
+- 颜色列表展示
+- 颜色的展示、编辑与对比
+- 自定义带背景色、渐变色的UISlider
+
+## 待完善的功能
+
+- 颜色的保存
+- 颜色的分享
+- 功能优化与bug修复
 
 ## 效果图
 
 1.从图片上拾取颜色，拾取当前触摸点的颜色，拖动与放大效果：
 
 ![从图片上拾取颜色](https://github.com/lqcjdx/YLSipColor/blob/master/YLSipColor/preview/picker_color_from_image.gif)
+
+2.从摄像头拾取颜色
+
+![从摄像头拾取颜色](https://github.com/lqcjdx/YLSipColor/blob/master/YLSipColor/preview/picker_color_from_camera.gif)
+
 
