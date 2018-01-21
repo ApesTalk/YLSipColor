@@ -30,6 +30,6 @@
 
 2.从摄像头拾取颜色
 
-![从摄像头拾取颜色](https://github.com/lqcjdx/YLSipColor/blob/master/YLSipColor/preview/picker_color_from_camera.gif)
+![从摄像头拾取颜色](https://github.com/lqcjdx/YLSipColor/blob/master/YLSipColor/preview/pick_color_from_camra.gif)
 
 
