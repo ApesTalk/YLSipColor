@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class YLCollectionContainerView;
+@protocol YLCollectionContainerViewDelegate <NSObject>
+- (void)containerView:(YLCollectionContainerView *)view scrollToPoint:(CGPoint)point;
+@end
+
 typedef void(^YLCollectionViewClickCellBlock)(NSIndexPath *indexPath, UIColor *color);
 
 @interface YLCollectionContainerView : UIView
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 @property (nonatomic, assign) CGSize itemSize;
 @property (nonatomic, copy) YLCollectionViewClickCellBlock clickBlock;
+@property (nonatomic, assign) id <YLCollectionContainerViewDelegate> delegate;
 - (void)refreshWithColors:(NSArray *)colors;
 @end

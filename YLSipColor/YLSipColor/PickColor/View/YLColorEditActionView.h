@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, YLActionType) {
 
 @protocol YLColorEditActionViewDelegate <NSObject>
 - (void)actionView:(YLColorEditActionView *)actionView actionType:(YLActionType)type oldColor:(UIColor *)oldColor newColor:(UIColor *)newColor;
+- (void)actionView:(YLColorEditActionView *)actionView scrollToPoint:(CGPoint)point;
 @end
 
 @interface YLColorEditActionView : UIView
@@ -32,5 +33,6 @@ typedef NS_ENUM(NSInteger, YLActionType) {
 @property (nonatomic, weak) id <YLColorEditActionViewDelegate> delegate;
 
 - (void)refreshWithPalette:(YLPalette *)palette;
+- (void)scrolToPoint:(CGPoint)point;
 
 @end

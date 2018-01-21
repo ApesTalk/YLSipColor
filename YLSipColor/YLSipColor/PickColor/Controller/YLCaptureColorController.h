@@ -11,4 +11,4 @@
 @interface YLCaptureColorController : UIViewController
 
 @end
-//https://github.com/wukexiu/InhaleColor/blob/master/InhaleColor/Mian/Scan/CollectColorViewController.m
+

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6D0001EA2010E6DD000217E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0001E92010E6DD000217E7 /* Assets.xcassets */; };
+		6D5E29B2201343F700C22BD3 /* YLDashLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5E29B1201343F700C22BD3 /* YLDashLine.m */; };
+		6D5E29B5201470D900C22BD3 /* UIColor+Name.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5E29B4201470D900C22BD3 /* UIColor+Name.m */; };
 		6DF003322009E7050094AD59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003312009E7050094AD59 /* AppDelegate.m */; };
 		6DF003402009E7060094AD59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0033F2009E7060094AD59 /* main.m */; };
 		6DF0034A2009E7060094AD59 /* YLSipColorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF003492009E7060094AD59 /* YLSipColorTests.m */; };
@@ -48,6 +50,10 @@
 /* Begin PBXFileReference section */
 		40C844C1EED17A7251032A15 /* libPods-YLSipColor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLSipColor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0001E92010E6DD000217E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D5E29B0201343F700C22BD3 /* YLDashLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDashLine.h; sourceTree = "<group>"; };
+		6D5E29B1201343F700C22BD3 /* YLDashLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLDashLine.m; sourceTree = "<group>"; };
+		6D5E29B3201470D900C22BD3 /* UIColor+Name.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Name.h"; sourceTree = "<group>"; };
+		6D5E29B4201470D900C22BD3 /* UIColor+Name.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Name.m"; sourceTree = "<group>"; };
 		6DF0032D2009E7050094AD59 /* YLSipColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLSipColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF003302009E7050094AD59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DF003312009E7050094AD59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -212,6 +218,8 @@
 				6DF0036E2009E75B0094AD59 /* UIView+Color.m */,
 				6DF0036F2009E75B0094AD59 /* YLPalette.h */,
 				6DF003702009E75B0094AD59 /* YLPalette.m */,
+				6D5E29B3201470D900C22BD3 /* UIColor+Name.h */,
+				6D5E29B4201470D900C22BD3 /* UIColor+Name.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +227,8 @@
 		6DF003712009E75B0094AD59 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6D5E29B0201343F700C22BD3 /* YLDashLine.h */,
+				6D5E29B1201343F700C22BD3 /* YLDashLine.m */,
 				6DF003722009E75B0094AD59 /* YLColorDotView.h */,
 				6DF003732009E75B0094AD59 /* YLColorDotView.m */,
 				6DF003742009E75B0094AD59 /* YLPaletteListCell.h */,
@@ -427,10 +437,12 @@
 			files = (
 				6DF0038F200B87F90094AD59 /* YLColorEditActionView.m in Sources */,
 				6DF003772009E75B0094AD59 /* YLPaletteDetailController.m in Sources */,
+				6D5E29B5201470D900C22BD3 /* UIColor+Name.m in Sources */,
 				6DF003792009E75B0094AD59 /* UIImage+Color.m in Sources */,
 				6DF003782009E75B0094AD59 /* YLPaletteListController.m in Sources */,
 				6DF0038C200B5D720094AD59 /* YLCollectionContainerView.m in Sources */,
 				6DF0037A2009E75B0094AD59 /* UIView+Color.m in Sources */,
+				6D5E29B2201343F700C22BD3 /* YLDashLine.m in Sources */,
 				6DF003762009E75B0094AD59 /* YLCaptureColorController.m in Sources */,
 				6DF003402009E7060094AD59 /* main.m in Sources */,
 				6DF0037C2009E75B0094AD59 /* YLColorDotView.m in Sources */,
@@ -503,7 +515,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -558,7 +570,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -583,11 +595,14 @@
 			baseConfigurationReference = CD27CB63D5724344DB2E197A /* Pods-YLSipColor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6VT56Z6SAT;
 				INFOPLIST_FILE = YLSipColor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -597,11 +612,14 @@
 			baseConfigurationReference = A464DCF2D0B336889F7697D8 /* Pods-YLSipColor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6VT56Z6SAT;
 				INFOPLIST_FILE = YLSipColor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lqcjdx.YLSipColor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

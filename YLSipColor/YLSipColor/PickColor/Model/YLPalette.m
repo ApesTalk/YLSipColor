@@ -18,4 +18,18 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if(!object || ![object isKindOfClass:[self class]]){
+        return NO;
+    }
+    YLPalette *otherPalette = (YLPalette *)object;
+    return [self.name isEqualToString:otherPalette.name];
+}
+
+- (NSUInteger)hash
+{
+    return [self.name hash];
+}
+
 @end

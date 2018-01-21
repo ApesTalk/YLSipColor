@@ -10,6 +10,8 @@
 #import "YLTranslucentToolbar.h"
 #import "YLPalette.h"
 #import "Constant.h"
+#import "YLDashLine.h"
+#import "UIColor+Name.h"
 
 static NSString *cellIdentifier = @"cell";
 
@@ -40,12 +42,25 @@ static NSString *cellIdentifier = @"cell";
 
 - (void)refreshWithColor:(UIColor *)color
 {
-    _nameLabel.text = @"ABC";
-    _hexNameLabel.text = @"#888888";
+    _nameLabel.text = [color yl_commonName];
+    _hexNameLabel.text = [color yl_hexName];
 }
 
 @end
 
+
+@interface YLSlider : UISlider
+@end
+
+@implementation YLSlider
+- (CGRect)trackRectForBounds:(CGRect)bounds
+{
+    CGRect newRect = [super trackRectForBounds:bounds];
+    //默认2
+    newRect.size.height = 4;
+    return newRect;
+}
+@end
 
 @interface YLColorEditActionView () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) YLPalette *palette;
@@ -55,15 +70,19 @@ static NSString *cellIdentifier = @"cell";
 @property (nonatomic, strong) UILabel *hueLabel;
 @property (nonatomic, strong) UISlider *hueSlider;
 @property (nonatomic, strong) UILabel *hueValueLabel;
+@property (nonatomic, strong) CAGradientLayer *hueLayer;
 @property (nonatomic, strong) UILabel *saturationLabel;
 @property (nonatomic, strong) UISlider *saturationSlider;
 @property (nonatomic, strong) UILabel *saturationValueLabel;
+@property (nonatomic, strong) CAGradientLayer *saturationLayer;
 @property (nonatomic, strong) UILabel *brightLabel;
 @property (nonatomic, strong) UISlider *brightSlider;
 @property (nonatomic, strong) UILabel *brightValueLabel;
+@property (nonatomic, strong) CAGradientLayer *brightLayer;
 @property (nonatomic, strong) UILabel *alphaLabel;
 @property (nonatomic, strong) UISlider *alphaSlider;
 @property (nonatomic, strong) UILabel *alphaValueLabel;
+@property (nonatomic, strong) CAGradientLayer *alphaLayer;
 @property (nonatomic, strong) YLTranslucentToolbar *toolBar;
 @property (nonatomic, strong) UIColor *currentColor;
 @end
@@ -97,59 +116,7 @@ static NSString *cellIdentifier = @"cell";
         [_editBtn addTarget:self action:@selector(editAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_editBtn];
         
-        _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, kActionSmallHeight, frame.size.width, kActionBigHeight - kActionSmallHeight)];
-        [self addSubview:_bottomView];
-        
-        CGFloat y = 0;
-        UIView *topLine = [[UIView alloc]initWithFrame:CGRectMake(0, y, frame.size.width, 0.5)];
-        topLine.backgroundColor = [UIColor lightGrayColor];
-        [_bottomView addSubview:topLine];
-        y += 0.5 + 15;
-        NSArray *titles = @[@"Hue", @"Saturation", @"Brightness", @"Alpha"];
-        for(NSInteger i = 0; i < 4; i++){
-            UILabel *tLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 16)];
-            tLabel.font = [UIFont systemFontOfSize:14];
-            tLabel.textColor = [UIColor lightGrayColor];
-            tLabel.text = titles[i];
-            [_bottomView addSubview:tLabel];
-            y += 25;
-            UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 35)];
-            slider.layer.cornerRadius = 17.5;
-            slider.layer.masksToBounds = YES;
-            [slider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
-            [_bottomView addSubview:slider];
-            UILabel *vLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y + (35 - 16) * 0.5, 40, 16)];
-            vLabel.font = [UIFont systemFontOfSize:14];
-            vLabel.textColor = [UIColor lightGrayColor];
-            [_bottomView addSubview:vLabel];
-            y += 35 + 10;
-            
-            if(i == 0){
-                _hueLabel = tLabel;
-                _hueSlider = slider;
-                _hueValueLabel = vLabel;
-            }else if (i == 1){
-                _saturationLabel = tLabel;
-                _saturationSlider = slider;
-                _saturationValueLabel = vLabel;
-            }else if (i == 2){
-                _brightLabel = tLabel;
-                _brightSlider = slider;
-                _brightValueLabel = vLabel;
-            }else{
-                _alphaLabel = tLabel;
-                _alphaSlider = slider;
-                _alphaValueLabel = vLabel;
-            }
-        }
-        
-        y += 10;
-        self.toolBar.frame = CGRectMake(0, y, frame.size.width, 44);
-        [_bottomView addSubview:self.toolBar];
-        
-        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 0.5)];
-        line.backgroundColor = [UIColor lightGrayColor];
-        [_toolBar addSubview:line];
+        [self setBottomSubViews:frame];
         
         [self setEditItemsEnable:NO];
     }
@@ -179,6 +146,89 @@ static NSString *cellIdentifier = @"cell";
     return _toolBar;
 }
 
+- (void)setBottomSubViews:(CGRect)frame
+{
+    _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, kActionSmallHeight, frame.size.width, kActionBigHeight - kActionSmallHeight)];
+    [self addSubview:_bottomView];
+    
+    CGFloat y = 0;
+    UIView *topLine = [[UIView alloc]initWithFrame:CGRectMake(0, y, frame.size.width, 0.5)];
+    topLine.backgroundColor = [UIColor lightGrayColor];
+    [_bottomView addSubview:topLine];
+    y += 0.5 + 15;
+    NSArray *titles = @[@"Hue", @"Saturation", @"Brightness", @"Alpha"];
+    for(NSInteger i = 0; i < 4; i++){
+        UILabel *tLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 20, 16)];
+        tLabel.font = [UIFont systemFontOfSize:14];
+        tLabel.textColor = [UIColor lightGrayColor];
+        tLabel.text = titles[i];
+        [_bottomView addSubview:tLabel];
+        y += 25;
+        UISlider *slider = [[YLSlider alloc]initWithFrame:CGRectMake(10, y, frame.size.width - 10 - 45, 35)];
+        slider.minimumTrackTintColor = [UIColor clearColor];
+        slider.maximumTrackTintColor = [UIColor clearColor];
+        [slider addTarget:self action:@selector(sliderValueChanged) forControlEvents:UIControlEventValueChanged];
+        [_bottomView addSubview:slider];
+        //背景图
+        YLDashLine *dashLine = [[YLDashLine alloc]init];
+        dashLine.layer.cornerRadius = 2;
+        dashLine.layer.masksToBounds = YES;
+        dashLine.layer.borderColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00].CGColor;
+        dashLine.layer.borderWidth = 0.5;
+        dashLine.frame = CGRectMake(0, 0, frame.size.width - 10 - 45, 4);
+        dashLine.backgroundColor = [UIColor whiteColor];
+        dashLine.lineColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
+        dashLine.lineWidth = 6;
+        dashLine.center = slider.center;
+        [_bottomView insertSubview:dashLine belowSubview:slider];
+        //渐变色
+        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+        gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor, (__bridge id)[UIColor clearColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+        gradientLayer.locations = @[@0.0, @0.5, @1.0];
+        gradientLayer.startPoint = CGPointMake(0, 0);
+        gradientLayer.endPoint = CGPointMake(1.0, 0);
+        gradientLayer.frame = CGRectMake(0, 0, frame.size.width - 10 - 45, 4);
+        [dashLine.layer addSublayer:gradientLayer];
+        
+        
+        UILabel *vLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width - 40, y + (35 - 16) * 0.5, 40, 16)];
+        vLabel.font = [UIFont systemFontOfSize:14];
+        vLabel.textColor = [UIColor lightGrayColor];
+        [_bottomView addSubview:vLabel];
+        y += 35 + 10;
+        
+        if(i == 0){
+            _hueLabel = tLabel;
+            _hueSlider = slider;
+            _hueValueLabel = vLabel;
+            _hueLayer = gradientLayer;
+        }else if (i == 1){
+            _saturationLabel = tLabel;
+            _saturationSlider = slider;
+            _saturationValueLabel = vLabel;
+            _saturationLayer = gradientLayer;
+        }else if (i == 2){
+            _brightLabel = tLabel;
+            _brightSlider = slider;
+            _brightValueLabel = vLabel;
+            _brightLayer = gradientLayer;
+        }else{
+            _alphaLabel = tLabel;
+            _alphaSlider = slider;
+            _alphaValueLabel = vLabel;
+            _alphaLayer = gradientLayer;
+        }
+    }
+    
+    y += 10;
+    self.toolBar.frame = CGRectMake(0, y, frame.size.width, 44);
+    [_bottomView addSubview:self.toolBar];
+    
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 0.5)];
+    line.backgroundColor = [UIColor lightGrayColor];
+    [_toolBar addSubview:line];
+}
+
 - (BOOL)isBig
 {
     return self.bounds.size.height > kActionSmallHeight + kHomeIndicatorHeight;
@@ -192,6 +242,11 @@ static NSString *cellIdentifier = @"cell";
         [self getHSBAFromColor:_currentColor];
     }
     [_collectionView reloadData];
+}
+
+- (void)scrolToPoint:(CGPoint)point
+{
+    _collectionView.contentOffset = point;
 }
 
 #pragma mark---UICollectionViewDataSource
@@ -209,24 +264,12 @@ static NSString *cellIdentifier = @"cell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+    if([_delegate respondsToSelector:@selector(actionView:scrollToPoint:)]){
+        [_delegate actionView:self scrollToPoint:scrollView.contentOffset];
+    }
 }
 
 #pragma mark---tool
-- (NSString *)hexNameForColor:(UIColor *)color
-{
-    const CGFloat *components = CGColorGetComponents(color.CGColor);
-    
-    CGFloat r = components[0];
-    CGFloat g = components[1];
-    CGFloat b = components[2];
-    
-    return [NSString stringWithFormat:@"#%02lX%02lX%02lX",
-            lroundf(r * 255),
-            lroundf(g * 255),
-            lroundf(b * 255)];
-}
-
 - (void)getHSBAFromColor:(UIColor *)color
 {
     CGFloat hue, saturation, brightness, alpha;
@@ -240,38 +283,11 @@ static NSString *cellIdentifier = @"cell";
     _alphaSlider.value = alpha;
     _alphaValueLabel.text = [NSString stringWithFormat:@"%.0f%%", alpha * 100];
     
-    [self refreshSliderGradientImage];
+    [self refreshSliderGradientColor];
 }
 
--(UIImage *)getGradientImageWithColors:(NSArray*)colors imgSize:(CGSize)imgSize
+- (void)refreshSliderGradientColor
 {
-    NSMutableArray *arRef = [NSMutableArray array];
-    for(UIColor *ref in colors) {
-        [arRef addObject:(id)ref.CGColor];
-        
-    }
-    UIGraphicsBeginImageContextWithOptions(imgSize, YES, 1);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
-    CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors lastObject] CGColor]);
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)arRef, NULL);
-    CGPoint start = CGPointMake(0.0, 0.0);
-    CGPoint end = CGPointMake(imgSize.width, imgSize.height);
-    CGContextDrawLinearGradient(context, gradient, start, end, kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    CGGradientRelease(gradient);
-    CGContextRestoreGState(context);
-    CGColorSpaceRelease(colorSpace);
-    UIGraphicsEndImageContext();
-    return [image resizableImageWithCapInsets:UIEdgeInsetsZero];
-}
-
-#pragma mark---other methods
-- (void)refreshSliderGradientImage
-{
-    UIImage *img = [[UIImage imageNamed:@"sliderBg"]resizableImageWithCapInsets:UIEdgeInsetsZero];
-    [_hueSlider setMinimumTrackImage:img forState:UIControlStateNormal];
-    [_hueSlider setMaximumTrackImage:img forState:UIControlStateNormal];
     CGFloat hue = _hueSlider.value;
     CGFloat saturation = _saturationSlider.value;
     CGFloat brightness = _brightSlider.value;
@@ -280,36 +296,28 @@ static NSString *cellIdentifier = @"cell";
 
     UIColor *hStartColor = [UIColor colorWithHue:0 saturation:saturation brightness:brightness alpha:alpha];
     UIColor *hEndColor = [UIColor colorWithHue:1.0 saturation:saturation brightness:brightness alpha:alpha];
-    UIImage *hMinImg = [self getGradientImageWithColors:@[hStartColor, nowColor] imgSize:CGSizeMake(_hueSlider.bounds.size.width * hue, 2)];
-//    [_hueSlider setMinimumTrackImage:hMinImg forState:UIControlStateNormal];
-//    UIImage *hMaxImg = [self getGradientImageWithColors:@[nowColor, hEndColor] imgSize:CGSizeMake(_hueSlider.bounds.size.width * (1 - hue), 2)];
-//    [_hueSlider setMaximumTrackImage:hMaxImg forState:UIControlStateNormal];
-    
+    _hueLayer.colors = @[(__bridge id)hStartColor.CGColor, (__bridge id)nowColor.CGColor, (__bridge id)hEndColor.CGColor];
+    _hueLayer.locations = @[@0.0, @(hue), @1.0];
+
     UIColor *sStartColor = [UIColor colorWithHue:hue saturation:0 brightness:brightness alpha:alpha];
     UIColor *sEndColor = [UIColor colorWithHue:hue saturation:1.0 brightness:brightness alpha:alpha];
-    UIImage *sMinImg = [self getGradientImageWithColors:@[sStartColor, nowColor] imgSize:CGSizeMake(_saturationSlider.bounds.size.width * saturation, 2)];
-    [_saturationSlider setMinimumTrackImage:sMinImg forState:UIControlStateNormal];
-    UIImage *sMaxImg = [self getGradientImageWithColors:@[nowColor, sEndColor] imgSize:CGSizeMake(_saturationSlider.bounds.size.width * (1 - saturation), 2)];
-    [_saturationSlider setMaximumTrackImage:sMaxImg forState:UIControlStateNormal];
+    _saturationLayer.colors = @[(__bridge id)sStartColor.CGColor, (__bridge id)nowColor.CGColor, (__bridge id)sEndColor.CGColor];
+    _saturationLayer.locations = @[@0.0, @(saturation), @1.0];
     
     UIColor *bStartColor = [UIColor colorWithHue:hue saturation:saturation brightness:0 alpha:alpha];
     UIColor *bEndColor = [UIColor colorWithHue:hue saturation:saturation brightness:1.0 alpha:alpha];
-    UIImage *bMinImg = [self getGradientImageWithColors:@[bStartColor, nowColor] imgSize:CGSizeMake(_brightSlider.bounds.size.width * brightness, 2)];
-    [_brightSlider setMinimumTrackImage:bMinImg forState:UIControlStateNormal];
-    UIImage *bMaxImg = [self getGradientImageWithColors:@[nowColor, bEndColor] imgSize:CGSizeMake(_brightSlider.bounds.size.width * (1 - brightness), 2)];
-    [_brightSlider setMaximumTrackImage:bMaxImg forState:UIControlStateNormal];
-    
+    _brightLayer.colors = @[(__bridge id)bStartColor.CGColor, (__bridge id)nowColor.CGColor, (__bridge id)bEndColor.CGColor];
+    _brightLayer.locations = @[@0.0, @(brightness), @1.0];
+
     UIColor *aStartColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0];
     UIColor *aEndColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0];
-    UIImage *aMinImg = [self getGradientImageWithColors:@[aStartColor, nowColor] imgSize:CGSizeMake(_alphaSlider.bounds.size.width * alpha, 2)];
-    [_alphaSlider setMinimumTrackImage:aMinImg forState:UIControlStateNormal];
-    UIImage *aMaxImg = [self getGradientImageWithColors:@[nowColor, aEndColor] imgSize:CGSizeMake(_alphaSlider.bounds.size.width * (1 - alpha), 2)];
-    [_alphaSlider setMaximumTrackImage:aMaxImg forState:UIControlStateNormal];
+    _alphaLayer.colors = @[(__bridge id)aStartColor.CGColor, (__bridge id)nowColor.CGColor, (__bridge id)aEndColor.CGColor];
+    _alphaLayer.locations = @[@0.0, @(alpha), @1.0];
 }
 
-- (void)sliderChanged
+- (void)sliderValueChanged
 {
-    [self refreshSliderGradientImage];
+    [self refreshSliderGradientColor];
     [self setEditItemsEnable:YES];
     if([_delegate respondsToSelector:@selector(actionView:actionType:oldColor:newColor:)]){
         UIColor *newColor = [UIColor colorWithHue:_hueSlider.value saturation:_saturationSlider.value brightness:_brightSlider.value alpha:_alphaSlider.value];

@@ -52,7 +52,11 @@ static NSString *cellIdentifier = @"cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@""]];
+    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"translucentBg"]];
+//    _rightBgView = [[UIImageView alloc]initWithFrame:CGRectMake(kScreenWidth * 0.5, 0, kScreenWidth * 0.5, height)];
+//    _rightBgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"translucentBg"]];
+//    _rightBgView.hidden = YES;
+//    [self.view addSubview:_rightBgView];
     UIView *colorView = [cell.contentView viewWithTag:1000];
     if(!colorView){
         colorView = [[UIView alloc]init];
@@ -75,6 +79,13 @@ static NSString *cellIdentifier = @"cell";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if(_clickBlock){
         _clickBlock(indexPath, [_colors objectAtIndex:indexPath.row]);
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if([_delegate respondsToSelector:@selector(containerView:scrollToPoint:)]){
+        [_delegate containerView:self scrollToPoint:scrollView.contentOffset];
     }
 }
 

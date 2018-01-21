@@ -10,8 +10,7 @@
 @class YLPalette;
 
 @protocol YLPaletteDetailDelegate <NSObject>
-- (void)changedPalette:(YLPalette *)palette;///< 修改or新增
-- (void)deletedPalette:(YLPalette *)palette;///< 删除
+- (void)changedPalette:(YLPalette *)palette;///< 修改、新增、删除
 @end
 
 @interface YLPaletteDetailController : UIViewController

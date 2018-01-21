@@ -16,7 +16,7 @@
 
 static NSString *cellIdentifier = @"YLPaletteListCell";
 
-@interface YLPaletteListController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface YLPaletteListController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, YLPaletteDetailDelegate>
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) NSMutableArray *paletteList;
 @property (nonatomic, strong) UIButton *addBtn;
@@ -114,6 +114,7 @@ static NSString *cellIdentifier = @"YLPaletteListCell";
         //TODO:goto detail vc
         [weakSelf.view endEditing:YES];
         YLPaletteDetailController *detailVc = [[YLPaletteDetailController alloc]initWithPalette:pallete currentIndex:index];
+        detailVc.delegate = weakSelf;
         [self presentViewController:detailVc animated:YES completion:nil];
     };
     return cell;
@@ -168,11 +169,27 @@ static NSString *cellIdentifier = @"YLPaletteListCell";
     [self dismissCover];
 }
 
+#pragma mark---YLPaletteDetailDelegate
+- (void)changedPalette:(YLPalette *)palette
+{
+    NSUInteger index = [_paletteList indexOfObject:palette];
+    if(index != NSNotFound){
+        //全部删除完了
+        if(palette.colors.count == 0){
+            [_paletteList removeObjectAtIndex:index];
+            [_table reloadData];
+        }else{
+            [_paletteList replaceObjectAtIndex:index withObject:palette];
+            [_table reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
 #pragma mark---other methods
 - (void)addNewPalette
 {
     YLCaptureColorController *vc = [[YLCaptureColorController alloc]init];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 - (void)showCover
@@ -196,10 +213,11 @@ static NSString *cellIdentifier = @"YLPaletteListCell";
     CGFloat red;
     CGFloat green;
     CGFloat blue;
+    //arc4random() % x  0到x-1之间的整数
     for(NSInteger i = 0; i < 10; i++){
-        red = (arc4random() % 255) / 255.0;
-        green = (arc4random() % 255) / 255.0;
-        blue = (arc4random() % 255) / 255.0;
+        red = (arc4random() % 256) / 255.0;
+        green = (arc4random() % 256) / 255.0;
+        blue = (arc4random() % 256) / 255.0;
         UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
         [colors addObject:color];
         YLPalette *palette = [[YLPalette alloc]initWithName:[NSString stringWithFormat:@"测试%li", i] colors:colors];
